@@ -1,0 +1,545 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="88.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-family:'Trebuchet MS', sans-serif;
+            background-image: url(bg.png);
+            background-color: black;
+            background-attachment: fixed;
+        }
+        .navbar{
+            position: fixed;
+            top: 0;
+            z-index: 3;
+            width: 100%;
+            animation-name: anim3;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+        }
+        @keyframes anim3 {
+            from { transform: translateY(-100px); }
+            to { transform: translateY(0); }
+        }
+        @keyframes anim1 {
+            from { transform: translateX(200px); }
+            to { transform: translateX(0); }
+        }
+        @keyframes anim2 {
+            from { transform: translateX(-250px); }
+            to { transform: translateX(0); }
+        }
+        #info1{
+            animation-name: anim2;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+        }
+        #title{
+            animation-name: anim1;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+        }
+        #profile{
+            animation-name: anim2;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+        }
+        #skills{
+            animation-name: hideElement;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+        }
+        @keyframes hideElement {
+            0% { opacity: 0; }
+            75%{opacity: 0;}
+            100% { opacity: 1; }
+        }
+        #info{
+            animation-name: hideElement;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+        }
+        .skill{
+            border-image-source: initial;
+            display: grid;
+            place-items: center;
+            width: 180px;
+            height: 120px;
+            margin: 25px;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            border-image-slice: 1;
+            background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(circle at left top, rgb(81, 162, 233), rgb(255, 77, 90));
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            border-style: double;
+            border-color: transparent;
+            border-width: 3px;
+            border-radius: 10px;
+        }
+        .skill_img{
+            margin: 10px;
+        }
+        .projects-container {
+            max-width: 90%;
+            margin: 80px auto 20px;
+        }           
+        .project {
+            display: flex;
+            position: relative;
+            margin-bottom: 150px;
+        }
+        .project img {
+            width: 100%;
+            max-width: 80%;
+            box-sizing: border-box;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+        .project img:hover{
+            transform: scale(0.95);
+        }
+        .project-description {
+            position: absolute;
+            left: 70%;
+            top: 10%;
+            color: #ffffff;
+            font-family: sans-serif;
+            padding: 10px;
+            margin-left: 0px;
+            width: calc(100% - 70%);
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        .project-description h2 {
+            font-size: xx-large;
+        }
+        .project-description p {
+            font-size: large;
+            line-height: 30px;
+            margin-bottom: 100px;
+        }
+        .project-description a , form a {
+            position: relative;
+            font-size: 1.5em;
+            padding: 8px 30px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            font-stretch: ultra-expanded;
+            overflow: hidden;
+            z-index: 3;
+        }
+        .project-description a::before, form a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ff4d5a;
+            transition: all 0.3s ease;
+            z-index: -1; 
+        }
+
+        .project-description a:hover, form a:hover{
+            color: black;
+            transition: 0.3s;
+        }
+        .project-description a:hover::before, form a:hover::before {
+            height: 100%;
+            background-color: #ff4d5a;
+            z-index: -1;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+        } 
+        @media (max-width: 768px) {
+            
+            .project {
+                flex-direction: column;
+                align-items: center;
+            }
+            .project img {
+                width: 80%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+            .column{
+                flex-direction: column;
+            }
+            .project-description {
+                position: static;
+                width: 100%;
+                left: 0;
+                margin-left: 0;
+            }
+            .education {
+                width: 100%;
+                left: 0;
+            }
+            .card h3 {
+                white-space: normal;
+            }
+            .row{
+                width: 100%;
+            }
+            footer {
+                flex-direction: column;
+                align-items: center;
+                height: 200px;
+            }
+        }
+        .education {
+            width: 90%;
+            max-width: 1200px;
+            margin: 80px auto;
+        }
+        .card {
+            width: 100%;
+            padding: 20px;
+            box-shadow: 4px 4px 4px rgba(154, 154, 154, 0.835);
+            margin-bottom: 50px;
+            color: #ffffff;
+            background-color: #33333333;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .contact_text{
+            display: grid;
+            place-items: center;
+        }
+        .contact_form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        input{
+            background-color: rgb(40, 40, 40);
+            margin-bottom: 10px;
+            width: 35%;
+            border-top-width: initial;
+            border-right-width: initial;
+            border-bottom-width: initial;
+            border-top-color: initial;
+            border-right-color: initial;
+            border-bottom-color: initial;
+            border-style: none none none none;
+            padding: 10px;
+            font-size: medium;
+            color: white;
+        }
+        input::placeholder , textarea::placeholder{
+            color: rgba(255, 255, 255, 0.708);
+        }
+        textarea{
+            background-color: rgb(40, 40, 40);
+            width: 35%;
+            height: 100px;
+            font-size: large;
+            white-space: pre-wrap;
+            resize: none;
+            padding: 10px;
+            border-top-width: initial;
+            border-right-width: initial;
+            border-bottom-width: initial;
+            border-top-color: initial;
+            border-right-color: initial;
+            border-bottom-color: initial;
+            border-style: none none none none;
+            margin-bottom: 70px;
+        }
+        footer .fa-solid, .fa-brands{
+            
+            border-radius: 50%;
+            background-color: white;
+            padding: 8px 8px;
+            margin: 8px;
+            font-size:x-large;
+            color: #000000;
+            transition: transform 0.3s;
+        }
+        footer .fa-solid:hover, .fa-brands:hover{
+            transform: scale(1.3);
+        }
+        .up{
+            background-color: #ff4d5a;
+            width: 50px;
+            padding: 15px 7px;
+            border-radius: 1px;
+            transform: translateY(-30px);
+            cursor: pointer;
+            
+        }
+        .up:hover{
+            animation: bounce 0.6s ease-in-out infinite alternate;
+        }
+        
+        @keyframes bounce {
+            to {
+                transform: translateY(-15px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand ms-5" href="#"><img src="72.png" width="150px" alt="logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item me-4 fs-5">
+                <a class="nav-link active" aria-current="page" id="home" href="#">Home</a>
+              </li>
+              <li class="nav-item me-4 fs-5">
+                <a class="nav-link active" id="about" href="#">About</a>
+              </li> 
+              <li class="nav-item me-4 fs-5">
+                <a class="nav-link active" aria-current="page" id="project" href="#">Projects</a>
+              </li>
+              <li class="nav-item me-4 fs-5">
+                <a class="nav-link active" id="education" href="#">Education</a>
+              </li> 
+              <li class="nav-item me-5 fs-5">
+                <a class="nav-link active" id="contact" href="#">Contact</a>
+              </li> 
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Profile (Home) -->
+
+    <div class="container mt-4 mb-5">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-1 col-xl-1"></div>
+            <div class="col-md-12 col-sm-12 col-lg-5 col-xl-5 mt-4">
+                    <img src="profile.JPG" id="profile" style="border-radius: 50%;z-index: -1; width: 450px; position: relative; top: 20%; margin-bottom: 20%;" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-5 col-xl-5" style=" margin-top: 13%;">
+                <img src="79.png" class="img-fluid" id="title" alt="">
+                <div class="text-center text-light" id="info" style="line-height: 30px;font-size: larger; letter-spacing: 2px;">
+                    <h2>A Bit About Me</h2>
+                    <p>I am a tech enthusiast and self-driven learner, passionate about working with technology. Possesses a good grasp of data structures
+                        and algorithms. Eager to explore and stay abreast of emerging technologies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr style="color: wheat; margin-top: 100px; width: 100%; margin-bottom: 100px;">
+
+    <!-- About(Skills) -->
+
+    <div style="display: grid; font-size: 30px; place-items: center;">
+        <h1 class="text-light display-4 fw-bolder mb-5">A<span style="text-decoration: underline; text-decoration-thickness: 7px; text-decoration-color: #ff4d5a;">bout </span></h1>
+    </div>
+    <div class="container mt-5">
+        <div class="row text-light">
+            <div id="info1" class="col-md-12 col-sm-12 col-lg-5 col-xl-5">
+               <center><img src="user.png" width="60%" class="img-fluid mb-3" alt=""></center> 
+               <p style="line-height: 30px;font-size: larger; letter-spacing: 2px;">Fully committed to the philosophy of life-long learning, I’m a front-end web developer with a deep passion for JavaScript, HTML, CSS, and all things web design. The unique combination of creativity, logic, technology, and never running out of new things to discover drives my excitement and passion for web development. When I’m not at my computer, I like to spend my time listening to music, which inspires my creativity and fuels my coding sessions.</p>
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-5 col-xl-5 ms-auto mt-5" style="display:grid;">
+                <center>
+                    <div class="skills-container" id="skills" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+                        <div class="skill"><img src="html.png" width="63px" class="img-fluid skill_img" alt=""><p>HTML</p></div>
+                        <div class="skill"><img src="css.png" width="63px" class="img-fluid skill_img" alt=""><p>CSS</p></div>
+                        <div class="skill"><img src="js.png" style="border-radius: 5px;" class="img-fluid skill_img" width="73px" alt=""><p>JS</p></div>
+                        <div class="skill"><img src="java.png" width="63px" class="img-fluid skill_img" alt=""><p>JAVA</p></div>
+                        <div class="skill"><img src="dsa.png" width="87px" class="img-fluid skill_img" alt=""><p>DSA</p></div>
+                        <div class="skill"><img src="bootstrap.png"  width="87px" class="img-fluid skill_img" alt=""><p>BOOTSTRAP</p></div>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <hr style="color: wheat; margin-top: 100px; width: 100%; margin-bottom: 100px;">    
+
+    <!-- Projects -->
+    
+    <div style="display: grid; font-size: 30px; place-items: center;">
+        <h1 class="text-light display-4 fw-bolder mb-5">P<span style="text-decoration: underline; text-decoration-thickness: 7px; text-decoration-color: #ff4d5a;">rojects </span></h1>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+                <div class="project">
+                    <a href="https://tourismbypremsai.netlify.app/"><img src="solid-.jpg" class="img-fluid" alt=""></a>
+                    <div class="project-description">   
+                        <h2>Visit India <br>Tourism Website</h2>
+                        <p>Dynamic and responsive tourism website using HTML, CSS, and Bootstrap.</p>
+                        <a href="https://tourismbypremsai.netlify.app/">View Site</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <a href="#start" class="site"><img src="portfolio.jpg" alt=""></a>
+                    <div class="project-description">   
+                        <h2>Premsai's <br>Portfolio Website</h2>
+                        <p>Dynamic and responsive Portfolio website using HTML, CSS, and JavaScript.</p>
+                        <a href="#start" class="site">View Site</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <hr style="color: wheat; margin-top: 100px; width: 100%; margin-bottom: 140px;">    
+
+    <!-- Education -->
+    
+    <div style="display: grid; font-size: 30px; place-items: center;">
+        <h1 class="text-light display-4 fw-bolder mb-5">E<span style="text-decoration: underline; text-decoration-thickness: 7px; text-decoration-color: #ff4d5a;">ducation </span></h1>
+    </div>
+
+    <div class="education">
+        <div class="card">
+            <h3 style="white-space: normal;">CMR Institute of Technology, Hyderabad</h3>
+            <p>B.Tech. - Computer Science & Engineering  <br>CGPA: 7.71 / 10</p>
+        </div>
+        <div class="card">
+            <h3 style="white-space: normal;">Srichaitanya Junior College, Hyderabad</h3>
+            <p>12th   <br>Percentage: 91.40 / 100</p>
+        </div>
+        <div class="card" style="margin-bottom: 200px;">
+            <h3 style="white-space: normal;">Siddhartha High School</h3>
+            <p>10th<br> CGPA: 9.2 / 10</p>
+        </div>
+    </div>
+
+
+    <hr style="color: wheat; margin-top: 100px; width: 100%; margin-bottom: 100px;">    
+
+    <!-- Contact -->
+    
+    <div style="display: grid; font-size: 30px; place-items: center; margin-bottom: 50px;">
+        <h1 class="text-light display-4 fw-bolder mb-5">C<span style="text-decoration: underline;  text-decoration-thickness: 7px; text-decoration-color: #ff4d5a;">ontact </span></h1>
+    </div> 
+
+    <div class="contact_text text-light fs-5">
+        <p>Leave your details and I'll get back to you as soon as possible.</p>
+    </div>
+
+    <form class="contact_form" style="margin-bottom: 200px;">
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <textarea name="message" id="" placeholder="Message"></textarea>
+        <a href="#">Submit</a>
+    </form>
+
+
+    <!-- Footer -->
+
+    <footer class="text-light" style="background-color: #333; color: white;">
+
+        <center>
+            <div class="up" id="up">
+                <img width="30px" src="up.png" alt="">
+            </div>
+            
+            <br><br>
+            <a href="mailto:premsaireddy47@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/Premsai520"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/premsai-enugu-a3a6b922b/"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://x.com/Premsai63905721"><i class="fa-brands fa-twitter"></i></a><br><br>
+        </center>
+    
+    </footer>
+
+
+
+    <script>
+        $(document).ready(function(){
+            
+            $("#about").click(function(){
+                $("body").animate({scrollTop:'680px'},100)
+            })
+            $("#home").css({color:"#ff4d5a"})
+            $(window).scroll(function(){
+                let x=$("body").scrollTop()
+                if(x<640){
+                    $("#project").css({color:"white"})
+                    $("#about").css({color:"white"})
+                    $("#education").css({color:"white"})
+                    $("#home").css({color:"#ff4d5a"})
+                }
+                else if(x>640 && x<1613){  
+                    $("#about").css({color:"#ff4d5a"})
+                    $("#project").css({color:"white"})
+                    $("#education").css({color:"white"})
+                    $("#home").css({color:"white"})
+                    $("#contact").css({color:"white"})
+                }
+                else if(x>1613 && x<3313){
+                    $("#project").css({color:"#ff4d5a"})
+                    $("#education").css({color:"white"})
+                    $("#about").css({color:"white"})
+                    $("#home").css({color:"white"})
+                    $("#contact").css({color:"white"})
+                }
+                else if(x>3313 && x<4388){
+                    $("#project").css({color:"white"})
+                    $("#education").css({color:"#ff4d5a"})
+                    $("#about").css({color:"white"})
+                    $("#home").css({color:"white"})
+                    $("#contact").css({color:"white"})
+                }
+                else {
+                    $("#project").css({color:"white"})
+                    $("#education").css({color:"white"})
+                    $("#about").css({color:"white"})
+                    $("#home").css({color:"white"})
+                    $("#contact").css({color:"#ff4d5a"})
+                }
+                
+            })
+            $("#about").click(function(){
+                $("body").animate({scrollTop:'690px'},100)
+            })
+            $("#project").click(function(){
+                $("body").animate({scrollTop:'1670px'},100)
+            })
+            $("#education").click(function(){
+                $("body").animate({scrollTop:'3380px'},100)
+            })
+            $("#contact").click(function(){
+                $("body").animate({scrollTop:'4430px'},100)
+            })
+            $("#home").click(function(){
+                $("body").animate({scrollTop:'0px'},100)
+            })
+            $(".site").click(function(){
+                $("body").animate({scrollTop:'0px'},100)
+            })
+            $("#up").click(function(){
+                $("body").animate({scrollTop:'0px'},100)
+            })
+
+        })
+    </script>
+    
+
+</body>
+</html>                     
